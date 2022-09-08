@@ -4,9 +4,9 @@
   become: true
 
   tasks:
-  - name: Install some packages
-    package:
-      name: 
-       - htop
-       - mc
-       - byobu
+    - name: Install some packages
+      package:
+        name:
+          - htop
+          - mc
+          - byobu
