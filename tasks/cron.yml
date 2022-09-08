@@ -1,0 +1,6 @@
+- name: install a cron task
+  cron:
+    name: Check some directories
+    minute: "*/3"
+    job: "ls -alh > /dev/null"
+    state: present
