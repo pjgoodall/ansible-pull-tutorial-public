@@ -1,5 +1,5 @@
-- name: Install some packages
-  apt:
+- name: Install packages
+  packages:
     name:
       - htop
       - mc
