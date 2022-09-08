@@ -2,7 +2,6 @@
   user:
     name: ansible
     system: true
-    present: true
 
 - name: copy sudoers_ansible
   copy:
