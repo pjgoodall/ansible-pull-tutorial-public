@@ -2,3 +2,4 @@
   apt:
     name:
       - neovim
+      - exa
