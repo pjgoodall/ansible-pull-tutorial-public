@@ -1,6 +1,6 @@
 - name: Install packages
   package:
     name:
-      - htop
-      - mc
-      - byobu
+      - neovim
+      - exa
+      - lnav
