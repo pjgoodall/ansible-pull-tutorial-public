@@ -1,0 +1,6 @@
+- name: Install some packages
+  apt:
+    name:
+      - htop
+      - mc
+      - byobu
