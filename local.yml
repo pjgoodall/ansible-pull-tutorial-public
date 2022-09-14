@@ -14,5 +14,5 @@
       package:
         name:
           - htop
-          - mc
-          - byobu
+          - tmux
+          - vim-nox
