@@ -10,4 +10,10 @@
         cache_valid_time: 3600
 
   tasks:
-    - include: tasks/packages.yml
+
+  - name: Install packages
+    packages:
+      name:
+        - htop
+        - mc
+        - byobu
