@@ -14,6 +14,5 @@ The challenge will to be to replicate this process wth a private repository. ans
 ```
 sudo ansible-pull \
     -U https://github.com/pjgoodall/ansible-pull-tutorial-public.git \
-    -C origin/zero
-
+    -C origin/wallpaper
 ```
