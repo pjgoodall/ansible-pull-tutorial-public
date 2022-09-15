@@ -1,7 +1,9 @@
 ---
-- hosts: localhost the_user=peterg
+- hosts: localhost 
   connection: local
   become: true
+  vars:
+    - the_user: peterg
 
   pre_tasks:
   - name: update repositories
