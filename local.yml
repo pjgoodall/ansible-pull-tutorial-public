@@ -36,6 +36,5 @@
   - name: set wallpaper position
     become_user: peterg
     dconf: 
-    dconf
       key: "/org/gnome/desktop/background/picture-options"
       value: "'zoom'"
