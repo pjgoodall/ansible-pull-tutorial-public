@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: localhost the_user=peterg
   connection: local
   become: true
 
@@ -20,6 +20,10 @@
         - vim-nox
         - exa
 
+  tasks:
+
+  - vars:
+      
   - name: copy wallpaper file
     copy:
       src: files/IMG_1933.png
@@ -28,13 +32,13 @@
       group: root
 
   - name: set wallpaper
-    become_user: peterg
+    become_user: {{ the_user }}
     dconf: 
       key: "/org/gnome/desktop/background/picrture-uri"
       value:  "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
 
   - name: set wallpaper position
-    become_user: peterg
+    become_user: {{ the_user }}
     dconf: 
       key: "/org/gnome/desktop/background/picture-options"
       value: "'zoom'"
