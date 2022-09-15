@@ -1,46 +1,51 @@
 ---
-- hosts: localhost 
+- name: Configure a desktop workstation using ansible-pull
+
+  hosts: localhost
   connection: local
   become: true
+
   vars:
     - the_user: peterg
 
   pre_tasks:
-  - name: update repositories
-    apt:
-      update_cache: yes
-      cache_valid_time: 3600
-  - name: install prereq for dconf
-    apt:
-      name:
-        - python3-psutil
+    - name: update repositories
+      apt:
+        name:
+          - update_cache: true
+          - cache_valid_time: 3600
+
+    - name: install prereq for dconf
+      apt:
+        name:
+          - python3-psutil
+
+    - name: Install developer utility packages
+      apt:
+        name:
+          - exa
 
   tasks:
-  - name: Install packages
-    apt:
-      name:
-        # - htop
-        # - tmux
-        # - neovim
-        # - vim-nox
-        - exa
+    - name: print the_user
+      debug:
+        msg: "the_user: {{ the_user }}"
 
-  tasks:
-  - name: copy wallpaper file
-    copy:
-      src: files/IMG_1933.png
-      dest: /usr/share/backgrounds/ansible-wallpaper.png
-      owner: root
-      group: root
+    - name: copy wallpaper file
+      copy:
+        src: files/IMG_1933.png
+        dest: /usr/share/backgrounds/ansible-wallpaper.png
+        owner: root
+        group: root
+        mode: "0755"
 
-  - name: set wallpaper
-    become_user: "{{ the_user }}"
-    dconf: 
-      key: "/org/gnome/desktop/background/picrture-uri"
-      value:  "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
+    - name: set wallpaper
+      become_user: "{{ the_user }}"
+      dconf:
+        key: "/org/gnome/desktop/background/picture-uri"
+        value: "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
 
-  - name: set wallpaper position
-    become_user: "{{ the_user }}"
-    dconf: 
-      key: "/org/gnome/desktop/background/picture-options"
-      value: "'zoom'"
+    - name: set wallpaper position
+      become_user: "{{ the_user }}"
+      dconf:
+        key: "/org/gnome/desktop/background/picture-options"
+        value: "'zoom'"
