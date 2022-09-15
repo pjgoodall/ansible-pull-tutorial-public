@@ -18,3 +18,20 @@
         - neovim
         - vim-nox
         - exa
+
+  - name: copy wallpaper file
+    copy:
+      src: files/IMG_1933.png
+      dest: /usr/share/backgrounds/ansible-wallpaper.png
+      owner: root
+      group: root
+
+  - name: set wallpaper
+    dconf: 
+      key: "/org/gnome/desktop/background/picrture-uri"
+      value:  "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
+
+  - name: set wallpeper position
+    dconf
+      key: "/org/gnome/desktop/background/picture-options"
+      value: "'zoom'"
