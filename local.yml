@@ -13,7 +13,7 @@
       apt:
         name:
           - update_cache: true
-          - cache_valid_time: 3600
+          - cache_valid_time: '3600'
 
     - name: install prereq for dconf
       apt:
