@@ -13,7 +13,7 @@
 
   tasks:
   - name: Install packages
-    package:
+    apt:
       name:
         - python3-psutil
         - htop
