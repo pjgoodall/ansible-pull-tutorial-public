@@ -21,8 +21,6 @@
         - exa
 
   tasks:
-
-  - vars:
       
   - name: copy wallpaper file
     copy:
@@ -32,13 +30,13 @@
       group: root
 
   - name: set wallpaper
-    become_user: {{ the_user }}
+    become_user: "{{ the_user }}"
     dconf: 
       key: "/org/gnome/desktop/background/picrture-uri"
       value:  "'file:///usr/share/backgrounds/ansible-wallpaper.png'"
 
   - name: set wallpaper position
-    become_user: {{ the_user }}
+    become_user: "{{ the_user }}"
     dconf: 
       key: "/org/gnome/desktop/background/picture-options"
       value: "'zoom'"
