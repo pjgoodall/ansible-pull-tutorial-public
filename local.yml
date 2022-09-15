@@ -11,9 +11,8 @@
   pre_tasks:
     - name: update repositories
       apt:
-        name:
-          - update_cache: true
-          - cache_valid_time: '3600'
+        update_cache: true
+        cache_valid_time: "3600"
 
     - name: install prereq for dconf
       apt:
