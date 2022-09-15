@@ -10,24 +10,22 @@
     apt:
       update_cache: yes
       cache_valid_time: 3600
+  - name: install prereq for dconf
+    apt:
+      name:
+        - python3-psutil
 
   tasks:
   - name: Install packages
     apt:
       name:
-        - htop
-        - tmux
-        - neovim
-        - vim-nox
+        # - htop
+        # - tmux
+        # - neovim
+        # - vim-nox
         - exa
 
-  - name: Install python psutils package using pip
-    pip:
-    name: psutils
-
-
   tasks:
-      
   - name: copy wallpaper file
     copy:
       src: files/IMG_1933.png
